@@ -1,0 +1,43 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Cliente extends Model
+{
+    /*use Notifiable;
+    use App\Cesta;
+
+
+    $cestas = Cestas::all() ;
+
+    foreach ( $cestas as $cesta){
+        var_dump( $cesta->name);
+    }
+    */
+    public function cestas() {
+        return $this->hasMany('App\Cesta');
+    }
+    public function getClientes(){
+        
+    }
+
+}
+<?php
+
+namespace Tests\Unit;
+
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
+use App\Cliente;
+
+class ClienteTest extends TestCase{
+    public function testGetClientes(){
+        $clientes = Cliente::where('id','>=','1')->first();
+        echo $clientes;
+    }
+    //public function testContar()
+}
